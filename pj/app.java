@@ -118,9 +118,6 @@ public class app {
 
     private static List<FichaDomino> GenerarFichas(){
         List<FichaDomino> todasLasFichas = FichaDomino.generarTodasLasFichas();
-        for (FichaDomino ficha : todasLasFichas) {
-            ficha.imprimirFicha();
-        }
         return todasLasFichas;
     }
 
@@ -158,6 +155,7 @@ public class app {
             }
             
             FichaDomino nuevaFicha = new FichaDomino(x, y);
+            nuevaFicha.imprimirFicha();
             fichaActual = new FichaDominoGrafica(nuevaFicha);
             
             // Actualizar la visualización
