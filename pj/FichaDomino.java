@@ -22,13 +22,14 @@ public class FichaDomino {
 
     public static List<FichaDomino> generarTodasLasFichas() {
         List<FichaDomino> fichas = new ArrayList<>();
-        for (int i = 6; i >= 0; i--) {
+        for (int i = 9; i >= 0; i--) {
             for (int j = i; j >= 0; j--) {
                 fichas.add(new FichaDomino(i, j));
             }
         }
         return fichas;
     }
+
     public void imprimirFicha() {
         System.out.println("[" + ladoIzquierdo + "|" + ladoDerecho + "]");
     }

@@ -23,13 +23,12 @@ public class app {
         crearPanelFichaIndividual();
         crearPanelPiramide();
         mostrarVentana();
-        
     }
 
     private void crearVentanaPrincipal() {
-        frame = new JFrame("Piezas de domino");
+        frame = new JFrame("Piezas de dominó doble 9");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 600);
+        frame.setSize(1000, 800);
         
         mainPanel = new JPanel(new BorderLayout());
         cardLayout = new CardLayout();
@@ -61,9 +60,9 @@ public class app {
         JPanel controlPanel = new JPanel();
         controlPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
         
-        JLabel lblX = new JLabel("Valor X (0-6):");
+        JLabel lblX = new JLabel("Valor X (0-9):");
         txtX = new JTextField("4", 3);
-        JLabel lblY = new JLabel("Valor Y (0-6):");
+        JLabel lblY = new JLabel("Valor Y (0-9):");
         txtY = new JTextField("2", 3);
         JButton btnCrearFicha = crearBoton("Crear Ficha", e -> crearFicha());
         
@@ -126,7 +125,7 @@ public class app {
     }
 
     private void mostrarPiramideInvertida(JPanel panel, List<FichaDomino> fichas) {
-        int nivel = 6;
+        int nivel = 9;
         int indice = 0;
         
         while (nivel >= 0 && indice < fichas.size()) {
@@ -153,8 +152,8 @@ public class app {
             int x = Integer.parseInt(txtX.getText());
             int y = Integer.parseInt(txtY.getText());
             
-            if (x < 0 || x > 6 || y < 0 || y > 6) {
-                JOptionPane.showMessageDialog(frame, "Los valores deben estar entre 0 y 6", "Error", JOptionPane.ERROR_MESSAGE);
+            if (x < 0 || x > 9 || y < 0 || y > 9) {
+                JOptionPane.showMessageDialog(frame, "Los valores deben estar entre 0 y 9", "Error", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             

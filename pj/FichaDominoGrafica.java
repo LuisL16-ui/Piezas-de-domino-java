@@ -11,15 +11,15 @@ public class FichaDominoGrafica extends JPanel {
     private boolean volteada = false;
     
     // Dimensiones base de la ficha (sin rotación)
-    private static final int ANCHO_BASE = 100;
-    private static final int ALTO_BASE = 200;
+    private static final int ANCHO_BASE = 50;
+    private static final int ALTO_BASE = 100;
     
     // Tamaño del panel (diagonal + margen de seguridad)
     private static final int PANEL_SIZE = (int)(Math.sqrt(ANCHO_BASE*ANCHO_BASE + ALTO_BASE*ALTO_BASE)) + 20;
     
     // Constantes de diseño
     private static final int DOT_SIZE = 8;
-    private static final int DOT_SPACING = 20;
+    private static final int DOT_SPACING = 10;
     private static final int BORDER_RADIUS = 15;
     private static final Color COLOR_FONDO = new Color(240, 240, 240);
     private static final Color COLOR_BORDE = new Color(50, 50, 50);
@@ -31,6 +31,9 @@ public class FichaDominoGrafica extends JPanel {
     private static final Color COLOR_4_PUNTOS = Color.YELLOW;
     private static final Color COLOR_5_PUNTOS = Color.ORANGE;
     private static final Color COLOR_6_PUNTOS = Color.PINK;
+    private static final Color COLOR_7_PUNTOS = Color.MAGENTA;
+    private static final Color COLOR_8_PUNTOS = Color.CYAN;
+    private static final Color COLOR_9_PUNTOS = new Color(128, 0, 128); // Púrpura oscuro
 
     public FichaDominoGrafica(FichaDomino ficha) {
         this.ficha = ficha;
@@ -94,6 +97,9 @@ public class FichaDominoGrafica extends JPanel {
             case 4: g.setColor(COLOR_4_PUNTOS); break;
             case 5: g.setColor(COLOR_5_PUNTOS); break;
             case 6: g.setColor(COLOR_6_PUNTOS); break;
+            case 7: g.setColor(COLOR_7_PUNTOS); break;
+            case 8: g.setColor(COLOR_8_PUNTOS); break;
+            case 9: g.setColor(COLOR_9_PUNTOS); break;
         }
         
         int spacing = (rotacion % 180 == 0) ? DOT_SPACING : DOT_SPACING - 2;
@@ -130,6 +136,36 @@ public class FichaDominoGrafica extends JPanel {
                 dibujarPunto(g, centerX - spacing, centerY);
                 dibujarPunto(g, centerX + spacing, centerY);
                 dibujarPunto(g, centerX - spacing, centerY + spacing);
+                dibujarPunto(g, centerX + spacing, centerY + spacing);
+                break;
+            case 7:
+                dibujarPunto(g, centerX, centerY);
+                dibujarPunto(g, centerX - spacing, centerY - spacing);
+                dibujarPunto(g, centerX + spacing, centerY - spacing);
+                dibujarPunto(g, centerX - spacing, centerY);
+                dibujarPunto(g, centerX + spacing, centerY);
+                dibujarPunto(g, centerX - spacing, centerY + spacing);
+                dibujarPunto(g, centerX + spacing, centerY + spacing);
+                break;
+            case 8:
+                dibujarPunto(g, centerX - spacing, centerY - spacing);
+                dibujarPunto(g, centerX, centerY - spacing);
+                dibujarPunto(g, centerX + spacing, centerY - spacing);
+                dibujarPunto(g, centerX - spacing, centerY);
+                dibujarPunto(g, centerX + spacing, centerY);
+                dibujarPunto(g, centerX - spacing, centerY + spacing);
+                dibujarPunto(g, centerX, centerY + spacing);
+                dibujarPunto(g, centerX + spacing, centerY + spacing);
+                break;
+            case 9:
+                dibujarPunto(g, centerX - spacing, centerY - spacing);
+                dibujarPunto(g, centerX, centerY - spacing);
+                dibujarPunto(g, centerX + spacing, centerY - spacing);
+                dibujarPunto(g, centerX - spacing, centerY);
+                dibujarPunto(g, centerX, centerY);
+                dibujarPunto(g, centerX + spacing, centerY);
+                dibujarPunto(g, centerX - spacing, centerY + spacing);
+                dibujarPunto(g, centerX, centerY + spacing);
                 dibujarPunto(g, centerX + spacing, centerY + spacing);
                 break;
         }
