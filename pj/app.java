@@ -116,15 +116,7 @@ public class app {
         scrollPane.setViewportView(pyramidPanel);
         cardPanel.add(scrollPane, "PIRAMIDE");
     }
-
-    private static List<FichaDomino> GenerarFichas(){
-        List<FichaDomino> todasLasFichas = FichaDomino.generarTodasLasFichas();
-        for (FichaDomino ficha : todasLasFichas) {
-            ficha.imprimirFicha();
-        }
-        return todasLasFichas;
-    }
-
+    private static List<FichaDomino> GenerarFichas(){List<FichaDomino> todasLasFichas = FichaDomino.generarTodasLasFichas();return todasLasFichas;}
     private void mostrarPiramideInvertida(JPanel panel, List<FichaDomino> fichas) {
         int nivel = 6;
         int indice = 0;
@@ -159,6 +151,7 @@ public class app {
             }
             
             FichaDomino nuevaFicha = new FichaDomino(x, y);
+            nuevaFicha.imprimirFicha();
             fichaActual = new FichaDominoGrafica(nuevaFicha);
             
             // Actualizar la visualización
